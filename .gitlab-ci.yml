@@ -10,4 +10,4 @@ terraform-apply:
     - |
       cd terraform
       terraform init
-      terraform plan  
+      terraform plan  -var do_token=${DO_TOKEN}
