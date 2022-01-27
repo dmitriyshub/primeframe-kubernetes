@@ -1,0 +1,10 @@
+stages:
+  - terraform-apply
+
+terraform-apply:
+  stage: terraform-apply
+  script:
+    - |
+      cd terraform
+      terraform init
+      terraform plan  
