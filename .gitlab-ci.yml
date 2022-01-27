@@ -10,4 +10,4 @@ terraform-apply:
     - |
       cd terraform
       terraform init
-      terraform plan  -var do_token=${DO_TOKEN}
+      terraform apply -auto-approve -var do_token=${DO_TOKEN}
