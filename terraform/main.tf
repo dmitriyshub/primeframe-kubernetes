@@ -5,6 +5,16 @@ terraform {
       version = "~> 2.0"
     }
   }
+
+  backend "s3" {
+        endpoint = "nyc3.digitaloceanspaces.com"
+        region = "us-east-1"
+        bucket = "primeframe-state" // name of your space
+        key = "primeframe-kubernetes/terraform.tfstate"
+
+        skip_credentials_validation = true
+        skip_metadata_api_check = true
+  }
 }
 
 variable "do_token" {}

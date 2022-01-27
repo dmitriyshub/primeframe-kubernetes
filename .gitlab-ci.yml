@@ -9,5 +9,5 @@ terraform-apply:
   script:
     - |
       cd terraform
-      terraform init
+      terraform init -backend-config="access_key=${SPACE_ACCESS_KEY}" -backend-config="secret_key=${SPACE_SECRET_KEY}"
       terraform apply -auto-approve -var do_token=${DO_TOKEN}
