@@ -3,6 +3,9 @@ stages:
 
 terraform-apply:
   stage: terraform-apply
+  image:
+    name: hashicorp/terraform:1.1.4
+    entrypoint: [""]
   script:
     - |
       cd terraform
