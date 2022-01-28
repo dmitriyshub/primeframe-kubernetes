@@ -1,5 +1,6 @@
 stages:
   - terraform-apply
+  - terraform-destroy
 
 terraform-apply:
   stage: terraform-apply
@@ -11,3 +12,15 @@ terraform-apply:
       cd terraform
       terraform init -backend-config="access_key=${SPACE_ACCESS_KEY}" -backend-config="secret_key=${SPACE_SECRET_KEY}"
       terraform apply -auto-approve -var do_token=${DO_TOKEN}
+
+terraform-destroy:
+  stage: terraform-destroy
+  image:
+    name: hashicorp/terraform:1.1.4
+    entrypoint: [""]
+  script:
+    - |
+      cd terraform
+      terraform init -backend-config="access_key=${SPACE_ACCESS_KEY}" -backend-config="secret_key=${SPACE_SECRET_KEY}"
+      terraform destroy -auto-approve -var do_token=${DO_TOKEN}
+  when: manual
